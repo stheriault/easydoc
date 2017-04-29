@@ -4,18 +4,10 @@
 #include <boost/archive/binary_oarchive.hpp>
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/serialization/base_object.hpp>
+#include <boost/serialization/vector.hpp>
 
 namespace easydoc
 {
-
-template<class Archive>
-class Serializable
-{
-public:
-  virtual ~Serializable() =default;
-
-  virtual void serialize(Archive& ar, const unsigned int version) =0;
-};
 
 } // namespace easydoc
 
