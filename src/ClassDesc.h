@@ -10,7 +10,8 @@
 namespace easydoc
 {
 
-class ClassDesc
+class ClassDesc :
+  public CXXDesc
 {
 private:
   std::string fullyQualifiedName;

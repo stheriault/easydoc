@@ -1,6 +1,8 @@
 #ifndef EASYDOC_LINK_H
 #define EASYDOC_LINK_H
 
+#include "CXXDesc.h"
+
 #include <string>
 
 namespace easydoc
@@ -10,7 +12,7 @@ class Link
 {
 private:
   std::string fullyQualifiedName;
-  //CXXDesc* cxxDesc;
+  CXXDesc* cxxDesc;
 
 public:
   inline void setFullyQualifiedName(const std::string& name);
@@ -29,6 +31,8 @@ const std::string& Link::getFullyQualifiedName() const
 
 std::string getLinkPath(const Link& link)
 {
+  //TODO if starts with ::, remove them
+
   std::string::size_type pos = 0;
   auto subject = link.getFullyQualifiedName();
 
@@ -39,6 +43,7 @@ std::string getLinkPath(const Link& link)
   }
   return subject;
 }
+
 } // namespace easydoc
 
 #endif
