@@ -31,10 +31,11 @@ const std::string& Link::getFullyQualifiedName() const
 
 std::string getLinkPath(const Link& link)
 {
-  //TODO if starts with ::, remove them
-
   std::string::size_type pos = 0;
   auto subject = link.getFullyQualifiedName();
+
+  if ((pos = subject.find("::", 0)) == 0)
+    subject.erase(0, 2);
 
   while ((pos = subject.find("::", pos)) != std::string::npos)
   {
