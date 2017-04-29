@@ -15,9 +15,16 @@ public:
   inline void setFullyQualifiedName(const std::string& name);
   inline const std::string& getFullyQualifiedName() const;
 
+  enum class linkType
+  {
+    ClassDesc,
+    FunctionDesc,
+  };
+
 private:
   std::string fullyQualifiedName;
   CXXDesc* cxxDesc;
+  linkType type;
 };
 
 // link member function inline definitions
