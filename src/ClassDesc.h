@@ -2,6 +2,7 @@
 #define EASYDOC_CLASS_DESC_H
 
 #include "Serializable.h"
+#include "Link.h"
 
 #include <string>
 #include <vector>
@@ -36,12 +37,12 @@ public:
 void ClassDesc::setFullyQualifiedName(const std::string& name)
 {
   fullyQualifiedName = name;
-};
+}
 
 const std::string& ClassDesc::getFullyQualifiedName() const
 {
   return fullyQualifiedName;
-};
+}
 
 void ClassDesc::addSubClass(const ClassDesc& cl)
 {

@@ -36,5 +36,10 @@ main()
   std::cout << cd2.getFullyQualifiedName() << std::endl;
   std::cout << cd2.getSubClass(0).getFullyQualifiedName() << std::endl;
 
+  easydoc::Link l;
+  l.setFullyQualifiedName("to::you::and::you::and::you");
+
+  std::cout << getLinkPath(l) << std::endl;
+
   return 0;
 }
