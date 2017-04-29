@@ -13,6 +13,15 @@ namespace easydoc
 class ClassDesc :
   public CXXDesc
 {
+public:
+  inline void setFullyQualifiedName(const std::string& name);
+  inline const std::string& getFullyQualifiedName() const;
+
+  inline void addSubClass(const ClassDesc& cl);
+  inline const ClassDesc&
+    getSubClass(std::vector<ClassDesc>::size_type index) const;
+  inline ClassDesc& getSubClass(std::vector<ClassDesc>::size_type index);
+
 private:
   std::string fullyQualifiedName;
   std::vector<ClassDesc> subClasses;
@@ -24,15 +33,6 @@ private:
     ar & fullyQualifiedName;
     ar & subClasses;
   }
-
-public:
-  inline void setFullyQualifiedName(const std::string& name);
-  inline const std::string& getFullyQualifiedName() const;
-
-  inline void addSubClass(const ClassDesc& cl);
-  inline const ClassDesc&
-    getSubClass(std::vector<ClassDesc>::size_type index) const;
-  inline ClassDesc& getSubClass(std::vector<ClassDesc>::size_type index);
 };
 
 void ClassDesc::setFullyQualifiedName(const std::string& name)

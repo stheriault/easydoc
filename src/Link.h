@@ -10,13 +10,13 @@ namespace easydoc
 
 class Link
 {
-private:
-  std::string fullyQualifiedName;
-  CXXDesc* cxxDesc;
-
 public:
   inline void setFullyQualifiedName(const std::string& name);
   inline const std::string& getFullyQualifiedName() const;
+
+private:
+  std::string fullyQualifiedName;
+  CXXDesc* cxxDesc;
 };
 
 void Link::setFullyQualifiedName(const std::string& name)
