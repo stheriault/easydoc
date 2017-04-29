@@ -8,6 +8,7 @@
 namespace easydoc
 {
 
+// link class
 class Link
 {
 public:
@@ -19,6 +20,7 @@ private:
   CXXDesc* cxxDesc;
 };
 
+// link member function inline definitions
 void Link::setFullyQualifiedName(const std::string& name)
 {
   fullyQualifiedName = name;
@@ -29,21 +31,8 @@ const std::string& Link::getFullyQualifiedName() const
   return fullyQualifiedName;
 }
 
-std::string getLinkPath(const Link& link)
-{
-  std::string::size_type pos = 0;
-  auto subject = link.getFullyQualifiedName();
-
-  if ((pos = subject.find("::", 0)) == 0)
-    subject.erase(0, 2);
-
-  while ((pos = subject.find("::", pos)) != std::string::npos)
-  {
-    subject.replace(pos, 2, "/");
-    pos += 1;
-  }
-  return subject;
-}
+// non member function declarations
+std::string getLinkPath(const Link& link);
 
 } // namespace easydoc
 
